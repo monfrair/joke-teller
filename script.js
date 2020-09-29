@@ -1,13 +1,12 @@
 //
 const button = document.getElementById('button');
-const audio = document.getElementById('audio');
+const audioElement = document.getElementById('audio');
 
 // Disable/enable button
 function toggleButton() {
 	button.disabled = !button.disabled;
 }
 
-//  VoiceRSS speech function
 // VoiceRSS Speech Function
 function tellMe(joke) {
 	const jokeString = joke.trim().replace(/ /g, '%20');
@@ -26,8 +25,7 @@ function tellMe(joke) {
 // Get jokes from Joke API
 async function getJokes() {
 	let joke = '';
-	const apiUrl =
-		'https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,racist,sexist';
+	const apiUrl = 'https://sv443.net/jokeapi/v2/joke/Any';
 	try {
 		const response = await fetch(apiUrl);
 		const data = await response.json();
